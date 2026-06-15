@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ēdhen studio brand — Proposta Essencial Saúde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#151515;--off-black:#1E1E1E;--cream:#F0EDE6;--warm-mid:#D8D2C8;--muted:#8A8478;--accent:#C8B89A;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}.d4{transition-delay:.46s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 6vw 8vh;position:relative;overflow:hidden;background:var(--black)}
+.hero-bg-word{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:clamp(14vw,22vw,28vw);font-weight:300;color:transparent;-webkit-text-stroke:1px rgba(200,184,154,.08);white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:-.02em;line-height:1}
+.hero-logo{position:absolute;top:5vh;right:6vw}
+.hero-logo img{height:55px;width:auto;display:block}
+.hero-tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;opacity:0;animation:up 1s .3s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title{font-family:var(--serif);font-size:clamp(3.2rem,7vw,8rem);font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--cream);max-width:80vw;opacity:0;animation:up 1.1s .5s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-sub{margin-top:2rem;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:1.5rem;opacity:0;animation:up 1s .75s cubic-bezier(.16,1,.3,1) forwards}
+.hero-sub::before{content:"";display:block;width:60px;height:1px;background:var(--accent)}
+.hero-scroll{position:absolute;bottom:4vh;right:6vw;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadein 1s 1.2s ease forwards}
+.hero-scroll span{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse 2s 1.5s ease infinite}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(200,184,154,.25),transparent)}
+
+/* ENXERGAMOS */
+.s-enx{background:var(--cream);color:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;padding:12vh 6vw;position:relative;overflow:hidden}
+.s-enx .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.s-enx h2{font-family:var(--serif);font-size:clamp(2.2rem,4vw,4rem);font-weight:300;line-height:1.15;letter-spacing:-.01em}
+.s-enx h2 em{font-style:italic}
+.s-enx .right p{font-size:15px;line-height:1.9;color:#3A3632;margin-bottom:1.4rem}
+.s-enx .right p strong{font-weight:500;color:var(--black)}
+.bg-word{position:absolute;bottom:-4vh;right:-2vw;font-family:var(--serif);font-size:22vw;font-weight:300;color:transparent;-webkit-text-stroke:1px rgba(0,0,0,.05);pointer-events:none;line-height:1;user-select:none}
+
+/* OPORTUNIDADE */
+.s-op{background:var(--off-black);text-align:center;padding:12vh 6vw}
+.s-op .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem}
+.s-op h2{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,6rem);font-weight:300;line-height:1.12;letter-spacing:-.025em;max-width:900px;margin:0 auto 3rem}
+.s-op h2 em{font-style:italic;color:var(--accent)}
+.s-op .st{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:300;font-style:italic;color:var(--warm-mid);max-width:700px;margin:0 auto;line-height:1.5}
+
+/* PAPEL */
+.s-papel{background:var(--black);display:grid;grid-template-columns:40% 1fr;gap:8vw;align-items:start;padding:12vh 6vw}
+.s-papel .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+.s-papel h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.8rem);font-weight:300;line-height:1.15;letter-spacing:-.015em}
+.s-papel h2 em{font-style:italic;color:var(--accent)}
+.s-papel .left p{margin-top:2rem;font-size:14px;line-height:1.9;color:var(--muted)}
+.papel-items{display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem}
+.papel-item{border-top:1px solid rgba(200,184,154,.2);padding-top:1.2rem}
+.papel-item .num{font-family:var(--serif);font-size:11px;color:var(--accent);letter-spacing:.2em;margin-bottom:.5rem}
+.papel-item p{font-size:13px;line-height:1.7;color:var(--warm-mid)}
+
+/* PILARES */
+.s-pil{background:var(--cream);color:var(--black);text-align:center;padding:12vh 6vw}
+.s-pil .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.s-pil h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,4rem);font-weight:300;letter-spacing:-.01em;margin-bottom:5rem}
+.pilares-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(0,0,0,.12)}
+.pilar{padding:3.5rem 2rem;border-right:1px solid rgba(0,0,0,.12);text-align:left;transition:background .4s}
+.pilar:last-child{border-right:none}
+.pilar:hover{background:var(--black);color:var(--cream)}
+.pilar:hover .pt{color:var(--accent)}.pilar:hover .pd{color:var(--warm-mid)}
+.pl{font-family:var(--serif);font-size:4rem;font-weight:300;line-height:1;color:rgba(0,0,0,.08);margin-bottom:1rem;transition:color .4s}
+.pilar:hover .pl{color:rgba(200,184,154,.15)}
+.pt{font-family:var(--serif);font-size:1.5rem;font-weight:400;letter-spacing:-.01em;margin-bottom:1rem;transition:color .4s}
+.pd{font-size:12px;line-height:1.8;color:#5A5650;transition:color .4s}
+
+/* NÍVEIS */
+.s-niv{background:var(--off-black);padding:12vh 6vw}
+.s-niv .hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:5rem}
+.s-niv .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.s-niv h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,4rem);font-weight:300;letter-spacing:-.015em;line-height:1.1}
+.s-niv .hdr p{font-size:13px;color:var(--muted);max-width:300px;line-height:1.7;text-align:right}
+.niveis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(200,184,154,.12)}
+.nivel{padding:3.5rem 2.5rem;border-right:1px solid rgba(200,184,154,.12);position:relative}
+.nivel:last-child{border-right:none}
+.nb{display:inline-block;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(200,184,154,.4);padding:4px 12px;margin-bottom:2rem}
+.nb.rec{background:var(--accent);color:var(--black);border-color:var(--accent)}
+.nn{font-family:var(--serif);font-size:10vw;font-weight:300;color:rgba(200,184,154,.06);position:absolute;bottom:2rem;right:2rem;line-height:1;pointer-events:none}
+.nivel h3{font-family:var(--serif);font-size:1.6rem;font-weight:300;letter-spacing:-.01em;margin-bottom:.5rem}
+.nivel h3 em{font-style:italic;color:var(--accent)}
+.ns{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,184,154,.12)}
+.ni{list-style:none;margin-bottom:2.5rem}
+.ni li{font-size:13px;line-height:1.6;color:var(--warm-mid);padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:.7rem}
+.ni li::before{content:"—";color:var(--accent);font-size:11px;margin-top:2px;flex-shrink:0}
+.np{font-family:var(--serif);font-size:2.2rem;font-weight:300;letter-spacing:-.02em;color:var(--cream)}
+.np span{font-size:13px;font-family:var(--sans);color:var(--muted);letter-spacing:.1em}
+
+/* RECOMENDAÇÃO */
+.s-rec{background:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;padding:12vh 6vw}
+.s-rec .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+.s-rec h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,4rem);font-weight:300;line-height:1.1;letter-spacing:-.015em;margin-bottom:2rem}
+.s-rec p{font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:1.2rem}
+.s-rec p strong{color:var(--cream);font-weight:400}
+.rc{background:rgba(200,184,154,.06);border:1px solid rgba(200,184,154,.15);padding:3rem}
+.rct{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+.rc h3{font-family:var(--serif);font-size:1.8rem;font-weight:300;letter-spacing:-.01em;margin-bottom:1.5rem}
+.rf{list-style:none;margin-bottom:2.5rem}
+.rf li{font-size:13px;color:var(--warm-mid);padding:.6rem 0;border-bottom:1px solid rgba(200,184,154,.08);display:flex;align-items:center;gap:.8rem}
+.rf li::before{content:"✓";color:var(--accent);font-size:11px}
+.rpb{margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(200,184,154,.15)}
+.rpb .lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.rpb .price{font-family:var(--serif);font-size:3rem;font-weight:300;letter-spacing:-.02em;color:var(--cream)}
+.rpb .note{font-size:12px;color:var(--muted);margin-top:.3rem}
+
+/* PROCESSO */
+.s-proc{background:var(--cream);color:var(--black);padding:12vh 6vw}
+.s-proc .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.s-proc h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,4rem);font-weight:300;letter-spacing:-.01em;margin-bottom:5rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.step{padding:0 2.5rem 0 0;border-right:1px solid rgba(0,0,0,.1);margin-right:2.5rem}
+.step:last-child{border-right:none;margin-right:0}
+.sn{font-family:var(--serif);font-size:5rem;font-weight:300;color:rgba(0,0,0,.07);line-height:1;margin-bottom:1.5rem}
+.step h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;letter-spacing:-.01em;margin-bottom:1rem}
+.step p{font-size:13px;line-height:1.8;color:#5A5650}
+
+/* PRAZO */
+.s-prazo{background:var(--off-black);padding:12vh 6vw}
+.s-prazo .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.s-prazo h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,4rem);font-weight:300;letter-spacing:-.01em;margin-bottom:4rem}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+.timeline::before{content:"";position:absolute;top:18px;left:0;right:0;height:1px;background:linear-gradient(to right,var(--accent),rgba(200,184,154,.1))}
+.week{padding-top:3rem;padding-right:1.5rem;position:relative}
+.wd{position:absolute;top:12px;left:0;width:13px;height:13px;border-radius:50%;background:var(--off-black);border:1.5px solid var(--accent)}
+.wd.active{background:var(--accent)}
+.wl{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.week p{font-size:12px;line-height:1.7;color:var(--muted)}
+
+/* CTA */
+.s-cta{background:var(--black);text-align:center;padding:18vh 6vw;position:relative;overflow:hidden}
+.cta-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:28vw;font-weight:300;color:transparent;-webkit-text-stroke:1px rgba(200,184,154,.04);white-space:nowrap;pointer-events:none;line-height:1}
+.s-cta .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem}
+.s-cta h2{font-family:var(--serif);font-size:clamp(2.5rem,5vw,6rem);font-weight:300;line-height:1.1;letter-spacing:-.025em;max-width:800px;margin:0 auto 3rem}
+.s-cta h2 em{font-style:italic;color:var(--accent)}
+.cta-btn{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--black);background:var(--accent);padding:18px 40px;text-decoration:none;transition:background .3s,color .3s}
+.cta-btn:hover{background:var(--cream);color:var(--black)}
+footer{background:var(--black);border-top:1px solid rgba(200,184,154,.1);padding:2.5rem 6vw;display:flex;justify-content:space-between;align-items:center}
+footer .logo{font-family:var(--serif);font-size:1.1rem;font-weight:300;letter-spacing:.04em;color:var(--cream)}
+footer .copy{font-size:11px;color:var(--muted);letter-spacing:.1em}
+
+@media(max-width:900px){
+  .s-enx,.s-papel,.s-rec{grid-template-columns:1fr}
+  .pilares-grid{grid-template-columns:1fr 1fr}
+  .niveis-grid{grid-template-columns:1fr}
+  .nivel{border-right:none;border-bottom:1px solid rgba(200,184,154,.12)}
+  .steps{grid-template-columns:1fr 1fr}
+  .s-niv .hdr{flex-direction:column;align-items:flex-start;gap:1rem}
+  .s-niv .hdr p{text-align:left}
+  .timeline{grid-template-columns:1fr 1fr}
+  .timeline::before{display:none}
+  .week{padding-top:0;padding-left:2rem;padding-bottom:1.5rem;border-left:1px solid rgba(200,184,154,.2)}
+  .wd{top:4px;left:-7px}
+}
+@media(max-width:600px){
+  .pilares-grid,.steps{grid-template-columns:1fr}
+  .pilar{border-right:none;border-bottom:1px solid rgba(0,0,0,.08)}
+  .step{border-right:none;padding-right:0;margin-right:0;margin-bottom:3rem}
+  .hero-title{max-width:100%}
+  .hero-logo img{height:38px}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg-word">BRANDING</div>
+  <div class="hero-logo"><img src="data:image/png;base64,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" alt="ēdhen studio brand"></div>
+  <div class="hero-tag">Proposta Estratégica · Essencial Saúde Integrada</div>
+  <h1 class="hero-title">Transformar<br>valor em <em>percepção.</em></h1>
+  <div class="hero-sub">Edhen Studio Brand · Gestão de Marca</div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="s-enx">
+  <div class="bg-word">valor</div>
+  <div class="left reveal">
+    <div class="eyebrow">O que enxergamos</div>
+    <h2>A Essencial já<br>construiu <em>valor.</em><br>Agora precisa<br>ser percebida.</h2>
+  </div>
+  <div class="right reveal d2">
+    <p>A Essencial já realizou investimentos importantes naquilo que a maioria das empresas deixa para depois.</p>
+    <p><strong>Construiu uma marca.</strong> Criou um ambiente acolhedor. Reuniu especialistas qualificados. Desenvolveu uma experiência alinhada ao seu propósito.</p>
+    <p>Porém existe uma diferença entre possuir valor e ser <strong>percebido pelo mercado como uma marca valiosa.</strong></p>
+    <p>Hoje enxergamos uma oportunidade clara: transformar toda essa construção em percepção, autoridade e conexão.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="s-op">
+  <div class="eyebrow reveal">Onde está a oportunidade</div>
+  <h2 class="reveal d1">No mercado da saúde,<br>não basta ser <em>bom.</em><br>É preciso ser lembrado.</h2>
+  <p class="st reveal d2">"Marcas fortes não crescem apenas porque possuem bons profissionais. Elas crescem porque comunicam valor de forma consistente."</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="s-papel">
+  <div class="left reveal">
+    <div class="eyebrow">Nosso papel</div>
+    <h2>Construção<br>de <em>percepção,</em><br>não apenas<br>conteúdo.</h2>
+    <p>A Edhen observa o negócio como um todo — da concorrência ao comportamento dos pacientes — para que cada ação fortaleça a mesma mensagem.</p>
+  </div>
+  <div class="right">
+    <div class="papel-items">
+      <div class="papel-item reveal d1"><div class="num">01 /</div><p>Análise de concorrência e oportunidades de mercado</p></div>
+      <div class="papel-item reveal d2"><div class="num">02 /</div><p>Comportamento dos pacientes e experiência de marca</p></div>
+      <div class="papel-item reveal d3"><div class="num">03 /</div><p>Campanhas sazonais e posicionamento estratégico</p></div>
+      <div class="papel-item reveal d4"><div class="num">04 /</div><p>Comunicação integrada — online e offline</p></div>
+      <div class="papel-item reveal d1"><div class="num">05 /</div><p>Construção de autoridade dos especialistas</p></div>
+      <div class="papel-item reveal d2"><div class="num">06 /</div><p>Direção criativa e estratégia de conteúdo</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-pil">
+  <div class="eyebrow reveal">Fundamentos para uma marca forte</div>
+  <h2 class="reveal d1">Os 4 pilares de uma marca memorável.</h2>
+  <div class="pilares-grid">
+    <div class="pilar reveal"><div class="pl">V</div><div class="pt">Visual</div><p class="pd">Qual mensagem a sua marca transmite? A identidade visual tangibiliza toda a mensagem da marca — consciente ou não.</p></div>
+    <div class="pilar reveal d1"><div class="pl">V</div><div class="pt">Voz</div><p class="pd">Comunicação correta para o seu público-alvo. Tom, linguagem e consistência na narrativa em todos os canais.</p></div>
+    <div class="pilar reveal d2"><div class="pl">V</div><div class="pt">Visão</div><p class="pd">Sabe seu propósito e onde quer chegar. O caminho estratégico que define cada decisão de comunicação.</p></div>
+    <div class="pilar reveal d3"><div class="pl">V</div><div class="pt">Valores</div><p class="pd">O que representa a sua marca? No que ela acredita e defende. A estrutura que conecta marca e consumidor.</p></div>
+  </div>
+</section>
+
+<section class="s-niv">
+  <div class="hdr">
+    <div class="reveal">
+      <div class="eyebrow">Soluções</div>
+      <h2>Nossas propostas<br>para a Essencial.</h2>
+    </div>
+    <p class="reveal d2">Três níveis de parceria, cada um desenhado para um momento diferente do crescimento da marca.</p>
+  </div>
+  <div class="niveis-grid">
+    <div class="nivel reveal">
+      <span class="nb rec">Recomendado</span>
+      <h3>Gestão <em>Estratégica</em><br>de Marca</h3>
+      <div class="ns">Nível 01 · Solução Completa</div>
+      <ul class="ni">
+        <li>Planejamento estratégico contínuo</li>
+        <li>Direção de comunicação</li>
+        <li>Análise de concorrentes</li>
+        <li>Campanhas sazonais</li>
+        <li>Autoridade dos especialistas</li>
+        <li>Captação e edição de vídeos</li>
+        <li>Design para redes e materiais</li>
+        <li>Integração com time de tráfego pago</li>
+        <li>Acompanhamento de métricas</li>
+        <li>Reuniões estratégicas mensais</li>
+        <li>2 visitas presenciais/mês</li>
+      </ul>
+      <div class="np">R$ 4.800<span>/mês</span></div>
+      <div class="nn">01</div>
+    </div>
+    <div class="nivel reveal d1">
+      <span class="nb">Intermediário</span>
+      <h3>Gestão de Conteúdo<br>e <em>Posicionamento</em></h3>
+      <div class="ns">Nível 02 · Com participação interna</div>
+      <ul class="ni">
+        <li>Planejamento estratégico de conteúdo</li>
+        <li>Linha editorial e calendário</li>
+        <li>Roteiros de vídeos</li>
+        <li>Design para redes sociais</li>
+        <li>Edição de vídeos e legendas</li>
+        <li>Publicações e análise de métricas</li>
+        <li>Sugestões para time de tráfego pago</li>
+        <li>Reuniões de alinhamento</li>
+      </ul>
+      <div class="np">R$ 3.500<span>/mês · com visitas</span></div>
+      <div class="nn">02</div>
+    </div>
+    <div class="nivel reveal d2">
+      <span class="nb">Consultoria</span>
+      <h3>Direção<br><em>Estratégica</em></h3>
+      <div class="ns">Nível 03 · Execução interna</div>
+      <ul class="ni">
+        <li>Planejamento mensal</li>
+        <li>Calendário estratégico</li>
+        <li>Linha editorial e roteiros</li>
+        <li>Ideias de campanhas</li>
+        <li>Reunião estratégica</li>
+        <li>Análise da execução</li>
+        <li>Suporte consultivo</li>
+        <li>Relatório de oportunidades</li>
+      </ul>
+      <div class="np">R$ 1.500<span>/mês</span></div>
+      <div class="nn">03</div>
+    </div>
+  </div>
+</section>
+
+<section class="s-rec">
+  <div class="left reveal">
+    <div class="eyebrow">Nossa recomendação</div>
+    <h2>A solução certa para o momento da Essencial.</h2>
+    <p>Após nossa análise inicial, acreditamos que a <strong>Gestão Estratégica de Marca</strong> é a solução mais adequada para a Essencial neste momento.</p>
+    <p>Não por envolver mais entregas. Mas porque existe uma oportunidade de fortalecer a percepção da marca e criar uma comunicação compatível com o nível da experiência que a clínica já oferece.</p>
+    <p>Nosso objetivo não é apenas produzir conteúdo. <strong>É ajudar a Essencial a se tornar uma referência lembrada, desejada e recomendada em sua região.</strong></p>
+  </div>
+  <div class="right reveal d2">
+    <div class="rc">
+      <div class="rct">Gestão Estratégica de Marca · Nível 01</div>
+      <h3>O que a Essencial recebe:</h3>
+      <ul class="rf">
+        <li>Planejamento estratégico contínuo</li>
+        <li>Direção criativa e de comunicação</li>
+        <li>Análise de concorrência e mercado</li>
+        <li>Campanhas e posicionamento de especialistas</li>
+        <li>Produção completa: vídeo, design, copy</li>
+        <li>Integração com time de tráfego pago</li>
+        <li>Acompanhamento de métricas</li>
+        <li>Reuniões estratégicas mensais</li>
+        <li>2 visitas presenciais mensais inclusas</li>
+      </ul>
+      <div class="rpb">
+        <div class="lbl">Investimento mensal</div>
+        <div class="price">R$ 4.800</div>
+        <div class="note">Inclui 2 visitas presenciais · *Consultar para 3 ou mais*</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-proc">
+  <div class="eyebrow reveal">Como funciona</div>
+  <h2 class="reveal d1">Sua jornada com a Edhen.</h2>
+  <div class="steps">
+    <div class="step reveal"><div class="sn">01</div><h3>Proposta</h3><p>Primeiro e decisivo alinhamento de expectativas. Você está recebendo agora nosso orçamento com todos os detalhes.</p></div>
+    <div class="step reveal d1"><div class="sn">02</div><h3>Aprovação</h3><p>Orçamento aprovado, você recebe o cronograma de criação com as etapas e os dados para o pagamento.</p></div>
+    <div class="step reveal d2"><div class="sn">03</div><h3>Briefing & Início</h3><p>Com o briefing preenchido e pagamento feito, iniciamos o projeto e apresentamos nos prazos combinados.</p></div>
+    <div class="step reveal d3"><div class="sn">04</div><h3>Prévias & Ajustes</h3><p>Do início ao fim você acompanha tudo, pede ajustes e aprova antes de qualquer coisa ir ao ar.</p></div>
+  </div>
+</section>
+
+<section class="s-prazo">
+  <div class="eyebrow reveal">Cronograma</div>
+  <h2 class="reveal d1">Prazo estimado: 6 semanas.</h2>
+  <div class="timeline">
+    <div class="week reveal"><div class="wd active"></div><div class="wl">Semana 1</div><p>Início do projeto e estudo de mercado</p></div>
+    <div class="week reveal d1"><div class="wd"></div><div class="wl">Semana 2</div><p>Desenvolvimento dos pilares de branding</p></div>
+    <div class="week reveal d2"><div class="wd"></div><div class="wl">Semana 3</div><p>Criação da estratégia de marca</p></div>
+    <div class="week reveal d3"><div class="wd"></div><div class="wl">Semana 4</div><p>Pesquisas e arquitetura de marca</p></div>
+    <div class="week reveal d1"><div class="wd"></div><div class="wl">Semana 5</div><p>Alinhamento da identidade visual à comunicação da marca</p></div>
+    <div class="week reveal d2"><div class="wd"></div><div class="wl">Semana 6</div><p>Finalização e entrega completa</p></div>
+  </div>
+</section>
+
+<section class="s-cta">
+  <div class="cta-bg">ēdhen</div>
+  <div class="eyebrow reveal">Próximo passo</div>
+  <h2 class="reveal d1">Pronta para se tornar<br>uma marca <em>lembrada,</em><br>desejada e recomendada?</h2>
+  <a class="cta-btn reveal d2" href="mailto:contato@edhen.com.br">Iniciar parceria</a>
+</section>
+
+<footer>
+  <div class="logo">ēdhen studio brand</div>
+  <div class="copy">© 2026 · Branding & Co.</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
